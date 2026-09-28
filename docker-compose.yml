@@ -1,0 +1,32 @@
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+
+    container_name: agrisense-api
+
+    ports:
+      - "8000:8000"
+
+    restart: unless-stopped
+
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+
+    container_name: agrisense-frontend
+
+    ports:
+      - "8501:8501"
+
+    environment:
+      API_URL: http://api:8000
+
+    depends_on:
+      - api
+
+    restart: unless-stopped

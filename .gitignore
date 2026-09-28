@@ -1,0 +1,15 @@
+# Ignore heavy models and datasets
+models/
+data/
+*.keras
+*.csv
+*.sav
+
+# Ignore cache and local configs
+__pycache__/
+*.pyc
+.env
+.ipynb_checkpoints/
+models/
+data/
+.ipynb_checkpoints/
