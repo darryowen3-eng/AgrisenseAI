@@ -1,0 +1,23 @@
+services:
+  # 1. Fast API Backend Service
+  - type: web
+    name: agrisense-api
+    runtime: docker
+    dockerfilePath: Dockerfile.api
+    dockerContext: .
+    plan: free # Change to starter/standard if you need more resources later
+    envVars:
+      - key: PORT
+        value: 8000
+
+  # 2. Streamlit Frontend Service
+  - type: web
+    name: agrisense-frontend
+    runtime: docker
+    dockerfilePath: Dockerfile.frontend
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8501
+
